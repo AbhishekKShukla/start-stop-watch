@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-
+let adjustInterval='undefined';
 function App() {
+  const [start,setStart]=useState(0);
+  const [disable,setDisable]=useState(false);
+   const startWatch=()=>{
+    //setStart(start+1);
+    adjustInterval=setInterval(()=>{
+      setStart((x)=>x+1)
+    },1000)
+    setDisable(true);
+   }
+   const stopWatch=()=>{
+    clearInterval(adjustInterval);
+    setDisable(false);
+
+   }
+   const resetWatch=()=>{
+    clearInterval(adjustInterval);
+    setDisable(false);
+    setStart(0);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Start Stop Watch</h1>
+     <h2>{start}</h2> 
+      <button className='startWatch' disabled={disable} onClick={()=>startWatch()}>Start</button>
+      <button className='stopWatch' onClick={()=>stopWatch()}>Stop</button>
+      <button className='resetWatch' onClick={()=>resetWatch()}>Reset</button>
     </div>
   );
 }

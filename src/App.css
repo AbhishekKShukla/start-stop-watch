@@ -6,7 +6,30 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.startWatch{
+  width: 80px;
+  height: 80px;
+  border-radius: 38px;
+  margin: 5px;
+  color:white;
+  background-color: green;
+}
+.stopWatch{
+  width: 80px;
+  height: 80px;
+  border-radius: 38px;
+  margin: 5px;
+  color:white;
+  background-color:blue;
+}
+.resetWatch{
+  width: 80px;
+  height: 80px;
+  border-radius: 38px;
+  margin: 5px;
+  color:white;
+  background-color: red;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
